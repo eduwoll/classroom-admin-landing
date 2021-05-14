@@ -8,7 +8,7 @@ const FooterCopyright = () => (
     {' '}
     {new Date().getFullYear()}
     {' '}
-    {Config.title}
+    {Config.site_name}
     . Powered with
     {' '}
     <span role="img" aria-label="Love">

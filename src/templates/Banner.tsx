@@ -9,14 +9,12 @@ import { Section } from '../layout/Section';
 const Banner = () => (
   <Section>
     <CTABanner
-      title="Lorem ipsum dolor sit amet consectetur adipisicing elit."
-      subtitle="Start your Free Trial."
+      title="Tem interesse?"
+      subtitle="Entre em contato conosco."
       button={(
-        <Link href="https://creativedesignsguru.com/category/nextjs/">
-          <a>
-            <Button>Get Started</Button>
+          <a href="mailto:contato@classroom-admin.com">
+            <Button>Contato</Button>
           </a>
-        </Link>
       )}
     />
   </Section>

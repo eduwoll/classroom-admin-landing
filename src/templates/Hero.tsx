@@ -2,7 +2,6 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import { Background } from '../background/Background';
 import { Button } from '../button/Button';
 import { HeroOneButton } from '../hero/HeroOneButton';
 import { Section } from '../layout/Section';
@@ -10,41 +9,37 @@ import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
 import { Logo } from './Logo';
 
 const Hero = () => (
-  <Background color="bg-gray-100">
-    <Section yPadding="py-6">
+  <div style={{ minHeight: '100vh', paddingTop: 16, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+    <Section>
       <NavbarTwoColumns logo={<Logo xl />}>
-        <li>
-          <Link href="https://github.com/ixartz/Next-JS-Landing-Page-Starter-Template">
-            <a>GitHub</a>
+        {/* <li>
+          <Link href="https://app.classroom-admin.com/login">
+            <a>Entrar</a>
           </Link>
-        </li>
-        <li>
-          <Link href="/">
-            <a>Sign in</a>
-          </Link>
-        </li>
+        </li> */}
       </NavbarTwoColumns>
     </Section>
-
-    <Section yPadding="pt-20 pb-32">
-      <HeroOneButton
-        title={(
-          <>
-            {'The modern landing page for\n'}
-            <span className="text-primary-500">React developer</span>
-          </>
-        )}
-        description="The easiest way to build React landing page in seconds."
-        button={(
-          <Link href="https://creativedesignsguru.com/category/nextjs/">
-            <a>
-              <Button xl>Download Your Free Theme</Button>
-            </a>
-          </Link>
-        )}
-      />
-    </Section>
-  </Background>
+    <div style={{ display: 'flex', flexGrow: 1, flexDirection: 'column', justifyContent: 'center' }}>
+      <Section>
+        <HeroOneButton
+          title={(
+            <>
+              {'Um facilitador para\n'}
+              <span className="text-primary-500">Diretores e Orientadores</span>
+            </>
+          )}
+          description="Veja seus dados do Google Classroom de uma forma centralizada."
+          button={(
+            <Link href="https://app.classroom-admin.com">
+              <a>
+                <Button xl>Acessar Aplicação</Button>
+              </a>
+            </Link>
+          )}
+        />
+      </Section>
+    </div>
+  </div>
 );
 
 export { Hero };
