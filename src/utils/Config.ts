@@ -1,6 +1,6 @@
 export const Config = {
   site_name: 'Classroom Admin',
-  title: 'Classroom Admin',
-  description: 'Gerencie suas turmas e alunos do Google Classroom de maneira mais pr·tica',
+  title: 'Classroom Admin - Gerencie suas turmas e alunos do Google Classroom',
+  description: 'Gerencie suas turmas e alunos do Google Classroom de maneira mais pr√°tica',
   locale: 'pt-br',
 };
