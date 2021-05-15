@@ -8,16 +8,18 @@ const FooterCopyright = () => (
     {' '}
     {new Date().getFullYear()}
     {' '}
-    {Config.site_name}
-    . Powered with
+    {Config.site_name}.
+    <div>
+      Powered with
     {' '}
-    <span role="img" aria-label="Love">
-      ♥
+      <span role="img" aria-label="Love">
+        ♥
     </span>
-    {' '}
+      {' '}
     by
     {' '}
-    <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>
+      <a href="https://creativedesignsguru.com">CreativeDesignsGuru</a>
+    </div>
     {/*
      * PLEASE READ THIS SECTION
      * We'll really appreciate if you could have a link to our website
