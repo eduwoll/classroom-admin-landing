@@ -11,18 +11,21 @@ import { Logo } from './Logo';
 function Hero() {
   const [isVisible, setIsVisible] = useState([false, false, false]);
   const transitionsActive = useRef(true);
+  const initialTransition = useRef(true);
   const transitionClasses = transitionsActive.current ? 'transition duration-1000' : '';
   const invisibleClasses = 'transform translate-y-10 opacity-0';
   const invisibleLogoClasses = 'transform -translate-y-10 opacity-0';
 
   useEffect(() => {
-    if (transitionsActive) {
-      transitionsActive.current = false;
+    if (initialTransition.current) {
+      initialTransition.current = false;
       setIsVisible([true, false, false]);
       setTimeout(() => setIsVisible([true, true, false]), 400);
       setTimeout(() => setIsVisible([true, true, true]), 800);
-    } else setIsVisible([true, true, true]);
-
+    } else {
+      transitionsActive.current = false;
+      setIsVisible([true, true, true]);
+    }
     return () => {
       transitionsActive.current = false;
     };
