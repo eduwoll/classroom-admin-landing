@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Link from 'next/link';
 
@@ -10,14 +10,23 @@ import { Logo } from './Logo';
 
 function Hero() {
   const [isVisible, setIsVisible] = useState([false, false, false]);
-  const transitionClasses = 'transition duration-1000';
+  const [transitionsActive, setTransitionsActive] = useState(true);
+  const isMounted = useRef(true);
+  const transitionClasses = transitionsActive ? 'transition duration-1000' : '';
   const invisibleClasses = 'transform translate-y-10 opacity-0';
   const invisibleLogoClasses = 'transform -translate-y-10 opacity-0';
 
   useEffect(() => {
-    setIsVisible([true, false, false]);
-    setTimeout(() => setIsVisible([true, true, false]), 400);
-    setTimeout(() => setIsVisible([true, true, true]), 800);
+    if (isMounted.current) {
+      setIsVisible([true, false, false]);
+      setTimeout(() => setIsVisible([true, true, false]), 400);
+      setTimeout(() => setIsVisible([true, true, true]), 800);
+      setTimeout(() => setTransitionsActive(false), 1800);
+    }
+
+    return () => {
+      isMounted.current = false;
+    };
   }, []);
 
   return (
