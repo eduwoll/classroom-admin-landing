@@ -11,7 +11,7 @@ import { Logo } from './Logo';
 function Hero() {
   const [isVisible, setIsVisible] = useState([false, false, false]);
   const transitionsActive = useRef(true);
-  const transitionClasses = transitionsActive ? 'transition duration-1000' : '';
+  const transitionClasses = transitionsActive.current ? 'transition duration-1000' : '';
   const invisibleClasses = 'transform translate-y-10 opacity-0';
   const invisibleLogoClasses = 'transform -translate-y-10 opacity-0';
 
