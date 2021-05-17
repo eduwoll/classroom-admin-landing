@@ -7,28 +7,20 @@ import { HeroOneButton } from '../hero/HeroOneButton';
 import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
 import { Logo } from './Logo';
+import { useRouter } from 'next/dist/client/router';
 
 function Hero() {
-  const [isVisible, setIsVisible] = useState([false, false, false]);
-  const transitionsActive = useRef(true);
-  const initialTransition = useRef(true);
-  const transitionClasses = transitionsActive.current ? 'transition duration-1000' : '';
+  const [isVisible, setIsVisible] = useState(false);
+  const transitionClasses = 'transition duration-1000'
   const invisibleClasses = 'transform translate-y-10 opacity-0';
   const invisibleLogoClasses = 'transform -translate-y-10 opacity-0';
 
+  console.log(0, transitionClasses, isVisible)
+  console.log(1, transitionClasses, isVisible)
+  console.log(2, transitionClasses, isVisible)
+
   useEffect(() => {
-    if (initialTransition.current) {
-      initialTransition.current = false;
-      setIsVisible([true, false, false]);
-      setTimeout(() => setIsVisible([true, true, false]), 400);
-      setTimeout(() => setIsVisible([true, true, true]), 800);
-    } else {
-      transitionsActive.current = false;
-      setIsVisible([true, true, true]);
-    }
-    return () => {
-      transitionsActive.current = false;
-    };
+    setIsVisible(true)
   }, []);
 
   return (
@@ -42,7 +34,7 @@ function Hero() {
       }}
     >
       <Section>
-        <div className={transitionClasses + (isVisible[0] ? '' : ' ' + invisibleLogoClasses)}>
+        <div className={transitionClasses + (isVisible ? '' : ' ' + invisibleLogoClasses)}>
           <NavbarTwoColumns logo={<Logo xl />}>
             {/* <li>
           <Link href="https://app.classroom-admin.com/login">
@@ -58,18 +50,18 @@ function Hero() {
         <Section>
           <HeroOneButton
             title={
-              <div className={transitionClasses + (isVisible[0] ? '' : ' ' + invisibleClasses)}>
-                {'Um Facilitador para\n'}
+              <div className={transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
+                <a href={useRouter().asPath}>{'Um Facilitador para\n'}</a>
                 <span className="text-primary-500">Diretores e Orientadores</span>
               </div>
             }
             description={
-              <div className={transitionClasses + (isVisible[1] ? '' : ' ' + invisibleClasses)}>
+              <div className={'delay-300 ' + transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
                 Veja seus dados do Google Classroom de uma forma centralizada.
               </div>
             }
             button={
-              <div className={transitionClasses + (isVisible[2] ? '' : ' ' + invisibleClasses)}>
+              <div className={'delay-700 ' + transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
                 <Link href="https://app.classroom-admin.com">
                   <a>
                     <Button xl>Acessar Aplicação</Button>
