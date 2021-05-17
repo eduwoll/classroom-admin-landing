@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 
@@ -7,7 +7,6 @@ import { HeroOneButton } from '../hero/HeroOneButton';
 import { Section } from '../layout/Section';
 import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
 import { Logo } from './Logo';
-import { useRouter } from 'next/dist/client/router';
 
 function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,7 +50,7 @@ function Hero() {
           <HeroOneButton
             title={
               <div className={transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
-                <a href={useRouter().asPath}>{'Um Facilitador para\n'}</a>
+                {'Um Facilitador para\n'}
                 <span className="text-primary-500">Diretores e Orientadores</span>
               </div>
             }
