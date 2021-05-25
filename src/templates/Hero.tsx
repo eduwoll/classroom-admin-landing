@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-
 import Link from 'next/link';
 
 import { Button } from '../button/Button';
@@ -9,18 +7,6 @@ import { NavbarTwoColumns } from '../navigation/NavbarTwoColumns';
 import { Logo } from './Logo';
 
 function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
-  const transitionClasses = 'transition duration-1000'
-  const invisibleClasses = 'transform translate-y-10 opacity-0';
-  const invisibleLogoClasses = 'transform -translate-y-10 opacity-0';
-
-  console.log(0, transitionClasses, isVisible)
-  console.log(1, transitionClasses, isVisible)
-  console.log(2, transitionClasses, isVisible)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, []);
 
   return (
     <div
@@ -33,7 +19,7 @@ function Hero() {
       }}
     >
       <Section>
-        <div className={transitionClasses + (isVisible ? '' : ' ' + invisibleLogoClasses)}>
+        <div className="fade-in-top">
           <NavbarTwoColumns logo={<Logo xl />}>
             {/* <li>
           <Link href="https://app.classroom-admin.com/login">
@@ -49,18 +35,18 @@ function Hero() {
         <Section>
           <HeroOneButton
             title={
-              <div className={transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
+              <div className="fade-in-bottom">
                 {'Um Facilitador para\n'}
                 <span className="text-primary-500">Diretores e Orientadores</span>
               </div>
             }
             description={
-              <div className={'delay-300 ' + transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
+              <div className="animation-delay-300 fade-in-bottom">
                 Veja seus dados do Google Classroom de uma forma centralizada.
               </div>
             }
             button={
-              <div className={'delay-700 ' + transitionClasses + (isVisible ? '' : ' ' + invisibleClasses)}>
+              <div className="animation-delay-600 fade-in-bottom">
                 <Link href="https://app.classroom-admin.com">
                   <a>
                     <Button xl>Acessar Aplicação</Button>

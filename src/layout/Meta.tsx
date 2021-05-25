@@ -17,6 +17,7 @@ const Meta = (props: IMetaProps) => (
       <meta charSet="UTF-8" key="charset" />
       <meta name="viewport" content="width=device-width,initial-scale=1" key="viewport" />
       <link rel="icon" href={`${process.env.baseUrl}/favicon.ico`} key="favicon" />
+      <link rel="stylesheet" href="static/style.css" />
     </Head>
     <NextSeo
       title={props.title}
